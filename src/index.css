@@ -1,0 +1,249 @@
+/* Fonts must be imported before Tailwind directives */
+@import './styles/fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* ── Base ──────────────────────────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+  }
+
+  /* Offset anchor scroll so fixed navbar (64px) doesn't hide section headings */
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  body {
+    @apply bg-bg-base text-text-plearn font-rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; }
+  img, video { max-width: 100%; height: auto; display: block; }
+  button, input, select, textarea { font-family: inherit; }
+}
+
+
+/* ── Utilities ─────────────────────────────────────────────────────────────── */
+@layer utilities {
+
+  /* Hero headline — solid white, clean and highly readable */
+  .text-gradient-hero {
+    color: #F4F0FF;
+    /* Faint neutral shadow for depth without colour distortion */
+    text-shadow: 0 2px 24px rgba(200, 180, 255, 0.10);
+  }
+
+  /* Gradient text — GRDNT 01 (orange → indigo) */
+  .text-gradient-01 {
+    background: linear-gradient(90deg, #FE5934, #573EFB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 0.05em;
+  }
+
+  /* Gradient text — GRDNT 04 (neon → cyan, premium moments) */
+  .text-gradient-04 {
+    background: linear-gradient(90deg, #E34EFF, #43FEF0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 0.05em;
+  }
+
+  /* Standard section max-width + padding */
+  .section-container {
+    @apply max-w-7xl mx-auto px-5 sm:px-8 lg:px-12;
+  }
+
+  /* Card base (dark) */
+  .card-base {
+    @apply bg-grdnt-card border border-white/[0.08] rounded-card;
+  }
+
+  /* Horizontal scroll snap — for card strips on mobile */
+  .scroll-snap-x {
+    @apply overflow-x-auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .scroll-snap-x::-webkit-scrollbar { display: none; }
+  .snap-card { scroll-snap-align: start; flex-shrink: 0; }
+}
+
+
+/* ── Components ────────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Skip link (accessibility) */
+  .skip-link {
+    @apply sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-50;
+    @apply bg-plearn-purple text-white px-4 py-2 rounded-btn font-rem font-semibold text-btn;
+  }
+
+  /* Pre-headline section label */
+  .section-tag {
+    @apply inline-flex items-center gap-1.5;
+    @apply font-rem font-semibold text-caption uppercase tracking-widest text-plearn-purple;
+  }
+
+  /* ── Button variants ── */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-grdnt-cta text-white font-rem font-semibold text-btn;
+    @apply px-6 py-3.5 rounded-btn transition-all duration-200;
+    @apply hover:opacity-90 active:scale-95;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-transparent text-white font-rem font-semibold text-btn;
+    @apply px-6 py-3.5 rounded-btn border border-white/30;
+    @apply transition-all duration-200 hover:border-white/60 hover:bg-white/5 active:scale-95;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base;
+  }
+
+  .btn-partner {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-plearn-indigo text-white font-rem font-semibold text-btn;
+    @apply px-6 py-3.5 rounded-btn transition-all duration-200;
+    @apply hover:bg-plearn-purple active:scale-95;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-indigo focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base;
+  }
+
+  /* Used on the light bg (For Partners) section */
+  .btn-outline-light {
+    @apply inline-flex items-center justify-center gap-2;
+    @apply bg-white text-plearn-purple font-rem font-semibold text-btn;
+    @apply px-6 py-3.5 rounded-btn border border-plearn-purple/40;
+    @apply transition-all duration-200 hover:border-plearn-purple hover:bg-plearn-purple/5 active:scale-95;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  }
+}
+
+
+/* ── Global focus ring ─────────────────────────────────────────────────────── */
+:focus-visible {
+  @apply outline-none ring-2 ring-plearn-purple ring-offset-2 ring-offset-bg-base;
+}
+
+
+/* ── Custom scrollbar ──────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #130E24; }
+::-webkit-scrollbar-thumb { background: #261D4A; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #8926E7; }
+
+
+/* ── Neon card border — animated light trail (GameplayPreviewSection) ───────── */
+/*
+  --neon-angle is set each frame via requestAnimationFrame + element.style.setProperty()
+  in GameplayPreviewSection.jsx — this bypasses @property / CSS-animation browser gaps
+  and guarantees a visibly moving gradient in every modern browser.
+
+  ::before  — sharp 3px neon line (conic-gradient masked to border-only)
+  ::after   — wider blurred copy of the same gradient for the neon bloom
+*/
+
+.neon-card-border {
+  position: relative;
+}
+
+/* ── Sharp neon trail line ── */
+.neon-card-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 3px;   /* border thickness */
+  background: conic-gradient(
+    from var(--neon-angle, 0deg) at 50% 50%,
+    transparent    0deg,
+    transparent  105deg,
+    rgba(60,  30, 220, 0.55) 135deg,
+    rgba(110, 65, 255, 0.90) 158deg,
+    rgba(180, 130, 255, 1.00) 174deg,
+    rgba(230, 200, 255, 1.00) 180deg,   /* peak — near-white purple */
+    rgba(180, 130, 255, 1.00) 186deg,
+    rgba(110, 65, 255, 0.90) 202deg,
+    rgba(60,  30, 220, 0.55) 225deg,
+    transparent  255deg,
+    transparent  360deg
+  );
+  /* Punch out center — only the padding-thick border frame stays visible */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ── Neon bloom / soft outer glow ── */
+.neon-card-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  padding: 10px;   /* wider = more spread */
+  background: conic-gradient(
+    from var(--neon-angle, 0deg) at 50% 50%,
+    transparent    0deg,
+    transparent  100deg,
+    rgba(45,  20, 200, 0.30) 132deg,
+    rgba(90,  55, 240, 0.55) 155deg,
+    rgba(155, 105, 255, 0.50) 174deg,
+    rgba(200, 165, 255, 0.45) 180deg,
+    rgba(155, 105, 255, 0.50) 186deg,
+    rgba(90,  55, 240, 0.55) 205deg,
+    rgba(45,  20, 200, 0.30) 228deg,
+    transparent  258deg,
+    transparent  360deg
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  filter: blur(10px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+
+/* ── Sparkle twinkle — coin particle glints (RewardsSection) ──────────────── */
+@keyframes sparkle-twinkle {
+  0%, 100% { opacity: 0;    transform: scale(0.3) rotate(0deg);  }
+  45%       { opacity: 1;    transform: scale(1.0) rotate(45deg); }
+  60%       { opacity: 0.8;  transform: scale(0.9) rotate(45deg); }
+}
+
+@keyframes sparkle-drift {
+  0%   { opacity: 0;   transform: scale(0.4) translateY(0px)   rotate(0deg);  }
+  35%  { opacity: 1;   transform: scale(1.1) translateY(-4px)  rotate(30deg); }
+  65%  { opacity: 0.8; transform: scale(0.9) translateY(-6px)  rotate(45deg); }
+  100% { opacity: 0;   transform: scale(0.3) translateY(-10px) rotate(60deg); }
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

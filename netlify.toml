@@ -1,0 +1,19 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Netlify configuration for PLEARN landing page
+#
+# SPA routing is also handled by public/_redirects, but this file lets Netlify
+# pick up the build settings automatically without dashboard configuration.
+# ─────────────────────────────────────────────────────────────────────────────
+
+[build]
+  command   = "npm run build"
+  publish   = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# SPA fallback — same as public/_redirects, belt-and-suspenders
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

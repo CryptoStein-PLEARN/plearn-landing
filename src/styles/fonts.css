@@ -1,0 +1,21 @@
+/* ─── Karantina Bold — Display / Headline font ───────────────────────────────
+   Used for: H1, H2, H3, step numbers, mission titles, badge labels.
+   Min usable size: 24px. Never use for body copy or buttons.             */
+@font-face {
+  font-family: 'Karantina';
+  src: url('/assets/fonts/Karantina-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── REM Variable — UI / Body font ─────────────────────────────────────────
+   Used for: nav, body, buttons, labels, inputs, captions.
+   Variable weight range: 100–900.                                        */
+@font-face {
+  font-family: 'REM';
+  src: url('/assets/fonts/REM-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}

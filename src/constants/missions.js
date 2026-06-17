@@ -1,0 +1,8 @@
+export const MISSIONS = [
+  { id: 'first-salary',   title: 'First Salary',       description: "You just got paid for the first time. Rent, food, and fun are all calling. What do you do?",                                      coinType: 'purple',  difficulty: 'Beginner',     reward: 50,  tag: 'Budgeting'  },
+  { id: 'emergency-fund', title: 'Emergency Ready',     description: "Your phone breaks and the repair bill is bigger than expected. Do you have a plan?",                                               coinType: 'green',   difficulty: 'Beginner',     reward: 60,  tag: 'Saving'     },
+  { id: 'side-hustle',    title: 'Side Hustle',         description: "You have a skill people will pay for. Can you turn it into extra income without burning out?",                                     coinType: 'orange',  difficulty: 'Intermediate', reward: 80,  tag: 'Earning'    },
+  { id: 'smart-spending', title: 'Smart Spender',       description: "You want the new phone. Your savings say otherwise. How do you make the right call?",                                             coinType: 'blue',    difficulty: 'Beginner',     reward: 50,  tag: 'Spending'   },
+  { id: 'invest-starter', title: 'Investment Starter',  description: "Someone mentions index funds. Do you know enough to make a move — or should you wait?",                                          coinType: 'indigo',  difficulty: 'Advanced',     reward: 100, tag: 'Investing'  },
+  { id: 'rent-day',       title: 'Rent Day',            description: "Bills are due, your balance is lower than expected, and payday is still five days away.",                                        coinType: 'magenta', difficulty: 'Intermediate', reward: 70,  tag: 'Budgeting'  },
+]
