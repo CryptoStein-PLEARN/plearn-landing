@@ -66,15 +66,15 @@ export default function HeroSection() {
         style={{ background: 'radial-gradient(ellipse 130% 120% at 50% 50%, transparent 42%, rgba(3,1,12,0.55) 100%)' }} />
 
       {/* ── Floating P-coin watermarks ────────────────────────────────── */}
-      <img src={COINS.purpleStyled} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.purpleStyled} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '460px', height: '460px', left: '-80px', top: '50%',
           transform: 'translateY(-50%)', objectFit: 'contain',
           opacity: 0.08,
           filter: 'blur(1.5px) drop-shadow(0 0 18px rgba(137,38,231,0.50)) drop-shadow(0 0 38px rgba(87,62,251,0.25))',
           animationDelay: '1.2s', animationDuration: '7s', zIndex: 0 }} />
-      <img src={COINS.blue} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.blue} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '320px', height: '320px', right: '-60px', bottom: '10%',
           objectFit: 'contain',
           opacity: 0.07,

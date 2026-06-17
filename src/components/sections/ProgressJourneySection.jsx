@@ -248,7 +248,7 @@ export default function ProgressJourneySection() {
       id="progress"
       ref={ref}
       aria-label="Progress Journey"
-      className="relative overflow-hidden py-section"
+      className="relative overflow-hidden py-section-sm lg:py-section"
       style={{ background: '#070120' }}
     >
       {/* ── Background (unchanged) ───────────────────────────────────── */}
@@ -269,19 +269,19 @@ export default function ProgressJourneySection() {
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 blur-[130px]"
         style={{ background: 'radial-gradient(ellipse 44% 38% at 5% 90%, rgba(239,0,189,0.10) 0%, transparent 65%)' }} />
 
-      <img src={COINS.blue} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.blue} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '460px', height: '460px', left: '-80px', top: '50%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.11,
           filter: 'blur(1px) drop-shadow(0 0 18px rgba(70,158,255,0.55)) drop-shadow(0 0 38px rgba(70,158,255,0.28))',
           animationDelay: '0.8s', animationDuration: '7s', zIndex: 0 }} />
-      <img src={COINS.orange} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.orange} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '340px', height: '340px', right: '-65px', top: '35%',
           objectFit: 'contain', opacity: 0.09,
           filter: 'blur(1.5px) drop-shadow(0 0 16px rgba(254,89,52,0.50)) drop-shadow(0 0 32px rgba(254,89,52,0.25))',
           animationDelay: '2.8s', animationDuration: '8.5s', zIndex: 0 }} />
-      <img src={COINS.purpleStyled} alt="" aria-hidden="true"
+      <img loading="lazy" src={COINS.purpleStyled} alt="" aria-hidden="true"
         className="pointer-events-none select-none absolute animate-float"
         style={{ width: '190px', height: '190px', right: '8%', bottom: '10%',
           objectFit: 'contain', opacity: 0.07,
@@ -292,7 +292,7 @@ export default function ProgressJourneySection() {
       <div className="section-container relative z-10">
 
         {/* ── Header ──────────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center text-center gap-4 mb-16" style={reveal(0)}>
+        <div className="flex flex-col items-center text-center gap-4 mb-10 lg:mb-16" style={reveal(0)}>
           <SectionTag>{PROGRESS.preTag}</SectionTag>
 
           <h2 className="font-karantina text-h2-sm lg:text-h2 leading-tight max-w-3xl">

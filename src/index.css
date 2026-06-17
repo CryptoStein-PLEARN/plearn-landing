@@ -238,6 +238,20 @@
   100% { opacity: 0;   transform: scale(0.3) translateY(-10px) rotate(60deg); }
 }
 
+/* ── Mobile performance: kill heavy decorative blur layers on phones ──────── */
+/*    Targets any aria-hidden element using Tailwind blur-[100px]–blur-[199px] */
+/*    These are purely atmospheric — removing them has zero visual impact at   */
+/*    phone widths where sections are already dark bg with radial gradients.   */
+@media (max-width: 767px) {
+  [aria-hidden="true"][class*="blur-[1"] {
+    display: none !important;
+  }
+  /* Slow down floating coin animation on mobile — reduces CPU ticks */
+  .animate-float {
+    animation-duration: 10s !important;
+  }
+}
+
 /* ── Reduced motion ────────────────────────────────────────────────────────── */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

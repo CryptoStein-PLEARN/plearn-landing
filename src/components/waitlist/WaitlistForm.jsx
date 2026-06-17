@@ -434,7 +434,7 @@ export default function WaitlistForm({ onClose, onSuccess, sourcePage = 'modal' 
   const busy = status === 'submitting'
 
   return (
-    <form onSubmit={handleSubmit} noValidate style={{ padding: '0 2rem 2rem' }}>
+    <form onSubmit={handleSubmit} noValidate style={{ padding: '0 clamp(1.25rem, 5vw, 2rem) clamp(1.25rem, 4vw, 2rem)' }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.1rem' }}>
 
         {/* First name */}

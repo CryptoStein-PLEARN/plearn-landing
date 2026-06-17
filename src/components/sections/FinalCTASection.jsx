@@ -131,7 +131,7 @@ export default function FinalCTASection() {
       id="waitlist"
       ref={ref}
       aria-label="Join the Beta"
-      className="relative overflow-hidden py-section"
+      className="relative overflow-hidden py-section-sm lg:py-section"
       style={{ background: '#060118' }}
     >
       {/* ── Dot grid ─────────────────────────────────────────────────── */}
@@ -152,13 +152,13 @@ export default function FinalCTASection() {
 
       {/* ── Floating coin watermarks ─────────────────────────────────── */}
       <img src={COINS.purpleStyled} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '440px', height: '440px', left: '-75px', top: '50%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.13,
           filter: 'blur(1px) drop-shadow(0 0 20px rgba(137,38,231,0.60)) drop-shadow(0 0 40px rgba(87,62,251,0.30))',
           animationDelay: '0.3s', animationDuration: '6.5s', zIndex: 0 }} />
       <img src={COINS.magenta} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '380px', height: '380px', right: '-65px', top: '50%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.11,
           filter: 'blur(1.5px) drop-shadow(0 0 18px rgba(239,0,189,0.55)) drop-shadow(0 0 36px rgba(239,0,189,0.28))',
@@ -234,7 +234,7 @@ export default function FinalCTASection() {
               {/* ── Panel content ──────────────────────────────────── */}
               <div
                 className="relative flex flex-col items-center text-center"
-                style={{ padding: '3.5rem 2.5rem 3rem', gap: '0' }}
+                style={{ paddingTop: 'clamp(2rem, 5vw, 3.5rem)', paddingBottom: 'clamp(1.75rem, 4vw, 3rem)', paddingLeft: 'clamp(1.25rem, 5vw, 2.5rem)', paddingRight: 'clamp(1.25rem, 5vw, 2.5rem)', gap: '0' }}
               >
 
                 {/* Section label */}

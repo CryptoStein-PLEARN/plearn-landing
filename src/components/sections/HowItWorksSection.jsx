@@ -113,7 +113,7 @@ function StepCard({ step, cfg, revealStyle }) {
           </span>
 
           {/* Card content */}
-          <div className="relative flex flex-col gap-6 p-8 pt-9">
+          <div className="relative flex flex-col gap-6 p-5 sm:p-8 pt-6 sm:pt-9">
 
             {/* Ring badge + accent bar */}
             <div className="flex flex-col items-start gap-3">
@@ -180,7 +180,7 @@ export default function HowItWorksSection() {
       id="how-it-works"
       ref={ref}
       aria-label="How It Works"
-      className="relative overflow-hidden py-section"
+      className="relative overflow-hidden py-section-sm lg:py-section"
       style={{ background: '#080220' }}
     >
       {/* ── Dot grid texture ─────────────────────────────────────────── */}
@@ -207,13 +207,13 @@ export default function HowItWorksSection() {
 
       {/* ── Floating P-coin watermarks (unchanged) ───────────────────── */}
       <img src={COINS.purpleStyled} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '500px', height: '500px', left: '-90px', top: '50%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.12,
           filter: 'blur(1px) drop-shadow(0 0 18px rgba(137,38,231,0.55)) drop-shadow(0 0 40px rgba(87,62,251,0.30))',
           animationDelay: '0.4s', animationDuration: '6s', zIndex: 0 }} />
       <img src={COINS.blue} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '400px', height: '400px', right: '-80px', top: '45%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.10,
           filter: 'blur(1.5px) drop-shadow(0 0 16px rgba(70,158,255,0.50)) drop-shadow(0 0 36px rgba(70,158,255,0.25))',
@@ -228,7 +228,7 @@ export default function HowItWorksSection() {
       <div className="section-container relative z-10">
 
         {/* ── Header ──────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center text-center gap-5 mb-16" style={reveal(0)}>
+        <div className="flex flex-col items-center text-center gap-5 mb-10 lg:mb-16" style={reveal(0)}>
 
           <SectionTag>{HOW_IT_WORKS.preTag}</SectionTag>
 

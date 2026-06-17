@@ -183,13 +183,13 @@ export default function Footer() {
     >
       {/* ── Floating coin watermarks ──────────────────────────────────── */}
       <img src={COINS.purpleStyled} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '420px', height: '420px', left: '-40px', top: '18%',
           objectFit: 'contain', opacity: 0.11,
           filter: 'blur(1.5px) drop-shadow(0 0 20px rgba(137,38,231,0.45))',
           animationDelay: '0.6s', animationDuration: '8s', zIndex: 0 }} />
       <img src={COINS.blue} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '380px', height: '380px', right: '-40px', bottom: '12%',
           objectFit: 'contain', opacity: 0.09,
           filter: 'blur(2px) drop-shadow(0 0 16px rgba(70,158,255,0.38))',
@@ -223,7 +223,7 @@ export default function Footer() {
               boxShadow: '0 0 14px 2px rgba(137,38,231,0.35)' }} />
 
           {/* 4-column grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1.1fr_1.1fr_1.2fr] gap-10 lg:gap-6 p-10 lg:p-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[2fr_1.1fr_1.1fr_1.2fr] gap-6 sm:gap-8 lg:gap-6 p-6 sm:p-8 lg:p-12">
 
             {/* ── Col 1: Brand ────────────────────────────────────────── */}
             <div className="flex flex-col gap-5">

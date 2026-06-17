@@ -215,7 +215,7 @@ function PillarCard({ pillar, revealStyle }) {
       >
         {/* ── INNER card: dark bg + content — overflow:hidden for clipping ── */}
         <div
-          className="relative flex flex-col gap-6 p-7 overflow-hidden"
+          className="relative flex flex-col gap-6 p-5 sm:p-7 overflow-hidden"
           style={{ borderRadius: '14px', background: pillar.cardBg }}
         >
           {/* Top accent bar */}
@@ -283,7 +283,7 @@ export default function RewardsSection() {
       id="rewards"
       ref={ref}
       aria-label="Rewards and P-Coins"
-      className="relative overflow-hidden py-section"
+      className="relative overflow-hidden py-section-sm lg:py-section"
       style={{ background: '#060220' }}
     >
       {/* ── Dot grid texture ─────────────────────────────────────────── */}
@@ -319,14 +319,14 @@ export default function RewardsSection() {
 
       {/* ── Floating P-coin watermarks ────────────────────────────────── */}
       <img src={COINS.magenta} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '480px', height: '480px', left: '-85px', top: '45%',
           transform: 'translateY(-50%)', objectFit: 'contain',
           opacity: 0.12,
           filter: 'blur(1px) drop-shadow(0 0 18px rgba(239,0,189,0.55)) drop-shadow(0 0 38px rgba(239,0,189,0.28))',
           animationDelay: '1.0s', animationDuration: '6.5s', zIndex: 0 }} />
       <img src={COINS.green} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '370px', height: '370px', right: '-70px', top: '40%',
           transform: 'translateY(-50%)', objectFit: 'contain',
           opacity: 0.09,
@@ -352,7 +352,7 @@ export default function RewardsSection() {
 
         {/* ── Pillar cards ─────────────────────────────────────────────── */}
         {/* Extra padding on the grid so floor underglow doesn't get clipped */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-20 pb-8">
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-12 lg:mb-20 pb-6 lg:pb-8">
           {REWARD_PILLARS.map((pillar) => (
             <PillarCard
               key={pillar.title}

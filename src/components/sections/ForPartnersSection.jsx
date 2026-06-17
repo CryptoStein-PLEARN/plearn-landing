@@ -195,7 +195,7 @@ function PartnerCard({ card, index, revealStyle }) {
           </span>
 
           {/* Content */}
-          <div className="relative flex flex-col gap-5 p-8 pt-9" style={{ flex: 1, zIndex: 1 }}>
+          <div className="relative flex flex-col gap-5 p-5 sm:p-8 pt-6 sm:pt-9" style={{ flex: 1, zIndex: 1 }}>
 
             {/* Icon circle */}
             <div style={{
@@ -270,7 +270,7 @@ export default function ForPartnersSection() {
       id="partners"
       ref={ref}
       aria-label="For Schools and Partners"
-      className="relative overflow-hidden py-section"
+      className="relative overflow-hidden py-section-sm lg:py-section"
       style={{ background: '#07021A' }}
     >
       {/* ── Dot grid ─────────────────────────────────────────────────── */}
@@ -296,19 +296,19 @@ export default function ForPartnersSection() {
         style={{ background: 'radial-gradient(ellipse 42% 36% at 6% 92%, rgba(239,0,189,0.10) 0%, transparent 65%)' }} />
 
       {/* ── Floating P-coin watermarks ────────────────────────────────── */}
-      <img src={COINS.purpleStyled} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.purpleStyled} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '500px', height: '500px', left: '-90px', top: '52%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.11,
           filter: 'blur(1px) drop-shadow(0 0 20px rgba(137,38,231,0.55)) drop-shadow(0 0 40px rgba(87,62,251,0.28))',
           animationDelay: '0.5s', animationDuration: '7s', zIndex: 0 }} />
-      <img src={COINS.blue} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.blue} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '400px', height: '400px', right: '-75px', top: '45%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.09,
           filter: 'blur(1.5px) drop-shadow(0 0 16px rgba(70,158,255,0.50)) drop-shadow(0 0 34px rgba(70,158,255,0.25))',
           animationDelay: '2.2s', animationDuration: '8.5s', zIndex: 0 }} />
-      <img src={COINS.orange} alt="" aria-hidden="true"
+      <img loading="lazy" src={COINS.orange} alt="" aria-hidden="true"
         className="pointer-events-none select-none absolute animate-float"
         style={{ width: '200px', height: '200px', right: '6%', top: '8%',
           objectFit: 'contain', opacity: 0.07,
@@ -319,7 +319,7 @@ export default function ForPartnersSection() {
       <div className="section-container relative z-10">
 
         {/* ── Header ─────────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center text-center gap-5 mb-16" style={reveal(0)}>
+        <div className="flex flex-col items-center text-center gap-5 mb-10 lg:mb-16" style={reveal(0)}>
 
           {/* Decorative section tag */}
           <PartnerSectionTag />

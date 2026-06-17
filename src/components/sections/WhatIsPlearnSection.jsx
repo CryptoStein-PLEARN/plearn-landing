@@ -193,7 +193,7 @@ function FeatureCard({ feature, cfg, index, revealStyle }) {
           </span>
 
           {/* Card content — flex-1 so it fills card height */}
-          <div className="flex flex-col gap-5 p-7 pt-8" style={{ position: 'relative', flex: 1 }}>
+          <div className="flex flex-col gap-5 p-5 sm:p-7 pt-6 sm:pt-8" style={{ position: 'relative', flex: 1 }}>
 
             {/* Coin with sparkles + accent bar */}
             <div className="flex flex-col items-start gap-3">
@@ -242,7 +242,7 @@ export default function WhatIsPlearnSection() {
       id="what-is-plearn"
       ref={ref}
       aria-label="What is PLEARN"
-      className="relative overflow-hidden py-section"
+      className="relative overflow-hidden py-section-sm lg:py-section"
       style={{ background: '#08041C' }}
     >
       {/* ── Dot grid texture ─────────────────────────────────────────── */}
@@ -268,19 +268,19 @@ export default function WhatIsPlearnSection() {
         style={{ background: 'radial-gradient(ellipse 42% 36% at 5% 94%, rgba(239,0,189,0.10) 0%, transparent 65%)' }} />
 
       {/* ── Floating P-coin watermarks (unchanged) ───────────────────── */}
-      <img src={COINS.orange} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.orange} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '480px', height: '480px', left: '-80px', top: '55%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.12,
           filter: 'blur(1px) drop-shadow(0 0 18px rgba(254,89,52,0.55)) drop-shadow(0 0 38px rgba(254,89,52,0.28))',
           animationDelay: '0.6s', animationDuration: '6.5s', zIndex: 0 }} />
-      <img src={COINS.green} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.green} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '360px', height: '360px', right: '-70px', top: '60%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.09,
           filter: 'blur(1.5px) drop-shadow(0 0 16px rgba(1,222,91,0.50)) drop-shadow(0 0 34px rgba(1,222,91,0.25))',
           animationDelay: '2.1s', animationDuration: '7.5s', zIndex: 0 }} />
-      <img src={COINS.blue} alt="" aria-hidden="true"
+      <img loading="lazy" src={COINS.blue} alt="" aria-hidden="true"
         className="pointer-events-none select-none absolute animate-float"
         style={{ width: '200px', height: '200px', right: '3%', top: '8%', objectFit: 'contain', opacity: 0.07,
           filter: 'blur(2px) drop-shadow(0 0 12px rgba(70,158,255,0.40))',
@@ -290,7 +290,7 @@ export default function WhatIsPlearnSection() {
       <div className="section-container relative z-10">
 
         {/* ── Header ─────────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center text-center gap-5 mb-16" style={reveal(0)}>
+        <div className="flex flex-col items-center text-center gap-5 mb-10 lg:mb-16" style={reveal(0)}>
 
           <SectionTag>{WHAT_IS_PLEARN.preTag}</SectionTag>
 

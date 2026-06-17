@@ -105,8 +105,8 @@ export default function WaitlistModal() {
         onClick={closeModal}
         style={{
           minHeight: '100%', display: 'flex',
-          alignItems: 'center', justifyContent: 'center',
-          padding: '1.5rem 1.25rem',
+          alignItems: 'flex-start', justifyContent: 'center',
+          padding: 'clamp(1rem, 5vh, 3rem) 1.25rem clamp(1rem, 3vh, 2rem)',
         }}
       >
 
@@ -177,7 +177,7 @@ export default function WaitlistModal() {
             {/* ── Modal header (hidden once success state shows) ── */}
             {showHeader && (
               <>
-                <div style={{ padding: '2.2rem 2rem 1.4rem', textAlign: 'center', paddingRight: '3rem' }}>
+                <div style={{ padding: 'clamp(1.5rem, 4vw, 2.2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 3vw, 1.4rem)', textAlign: 'center', paddingRight: '3rem' }}>
                   {/* Beta label */}
                   <div style={{
                     display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',

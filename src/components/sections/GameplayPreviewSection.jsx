@@ -107,7 +107,7 @@ export default function GameplayPreviewSection() {
       id="gameplay"
       ref={ref}
       aria-label="Gameplay Preview"
-      className="relative overflow-hidden py-section"
+      className="relative overflow-hidden py-section-sm lg:py-section"
       style={{ background: '#07031A' }}
     >
       {/* ── Dot grid texture ─────────────────────────────────────────── */}
@@ -140,7 +140,7 @@ export default function GameplayPreviewSection() {
 
       {/* Left — large purple coin, partially cropped at left edge */}
       <img src={COINS.purpleStyled} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{
           width: '500px', height: '500px', left: '-80px', top: '50%',
           transform: 'translateY(-50%)', objectFit: 'contain',
@@ -152,7 +152,7 @@ export default function GameplayPreviewSection() {
 
       {/* Right — large blue coin, partially cropped at right edge */}
       <img src={COINS.blue} alt="" aria-hidden="true" loading="lazy"
-        className="pointer-events-none select-none absolute animate-float"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{
           width: '380px', height: '380px', right: '-70px', bottom: '8%',
           objectFit: 'contain',

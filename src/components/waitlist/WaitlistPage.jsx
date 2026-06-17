@@ -100,7 +100,7 @@ export default function WaitlistPage() {
             }} />
 
             {/* ── Panel header ── */}
-            <div style={{ padding: '2.2rem 2rem 1.4rem', textAlign: 'center' }}>
+            <div style={{ padding: 'clamp(1.5rem, 4vw, 2.2rem) clamp(1rem, 4vw, 2rem) clamp(1rem, 3vw, 1.4rem)', textAlign: 'center' }}>
               {/* Beta label */}
               <div style={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px',

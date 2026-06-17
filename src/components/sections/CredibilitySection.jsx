@@ -198,7 +198,7 @@ export default function CredibilitySection() {
       id="credibility"
       ref={ref}
       aria-label="Credibility and Backing"
-      className="relative overflow-hidden py-section"
+      className="relative overflow-hidden py-section-sm lg:py-section"
       style={{ background: '#06011C' }}
     >
       {/* ── Dot grid ─────────────────────────────────────────────────── */}
@@ -222,19 +222,19 @@ export default function CredibilitySection() {
         style={{ background: 'radial-gradient(ellipse 44% 36% at 5% 88%, rgba(137,38,231,0.12) 0%, transparent 65%)' }} />
 
       {/* ── Floating P-coin watermarks ────────────────────────────────── */}
-      <img src={COINS.purpleStyled} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.purpleStyled} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '460px', height: '460px', left: '-80px', top: '50%',
           transform: 'translateY(-50%)', objectFit: 'contain', opacity: 0.11,
           filter: 'blur(1px) drop-shadow(0 0 18px rgba(137,38,231,0.55)) drop-shadow(0 0 38px rgba(87,62,251,0.28))',
           animationDelay: '1.2s', animationDuration: '7s', zIndex: 0 }} />
-      <img src={COINS.green} alt="" aria-hidden="true"
-        className="pointer-events-none select-none absolute animate-float"
+      <img loading="lazy" src={COINS.green} alt="" aria-hidden="true"
+        className="pointer-events-none select-none absolute animate-float hidden sm:block"
         style={{ width: '350px', height: '350px', right: '-65px', top: '40%',
           objectFit: 'contain', opacity: 0.09,
           filter: 'blur(1.5px) drop-shadow(0 0 16px rgba(1,222,91,0.50)) drop-shadow(0 0 32px rgba(1,222,91,0.25))',
           animationDelay: '3.2s', animationDuration: '8s', zIndex: 0 }} />
-      <img src={COINS.blue} alt="" aria-hidden="true"
+      <img loading="lazy" src={COINS.blue} alt="" aria-hidden="true"
         className="pointer-events-none select-none absolute animate-float"
         style={{ width: '180px', height: '180px', right: '6%', bottom: '12%',
           objectFit: 'contain', opacity: 0.07,
@@ -244,7 +244,7 @@ export default function CredibilitySection() {
       <div className="section-container relative z-10">
 
         {/* ── Header ──────────────────────────────────────────────────── */}
-        <div className="flex flex-col items-center text-center gap-5 mb-16" style={reveal(0)}>
+        <div className="flex flex-col items-center text-center gap-5 mb-10 lg:mb-16" style={reveal(0)}>
 
           <SectionTag>{CREDIBILITY.preTag}</SectionTag>
 
