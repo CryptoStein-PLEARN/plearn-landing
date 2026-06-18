@@ -41,7 +41,7 @@ export default function Navbar() {
         ].join(' ')}
       >
         <div className="section-container">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
 
             {/* ── Logo ── */}
             {/* Uses the official PLEARN logo: glossy P-coin above the 3D wordmark.
@@ -50,12 +50,12 @@ export default function Navbar() {
             <a
               href="/"
               aria-label="PLEARN — home"
-              className="flex-shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
+              className="flex items-center self-center flex-shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
             >
               <img
                 src={LOGOS.main}
                 alt="PLEARN"
-                className="h-11 w-auto"
+                className="h-[68px] w-auto"
               />
             </a>
 

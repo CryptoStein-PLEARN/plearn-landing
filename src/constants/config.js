@@ -35,13 +35,11 @@ export const CTA = {
 // Anchor links (#) point to Home page sections.
 // Page links (/about etc.) activate once each page is built.
 export const NAV_LINKS = [
-  // Home-page anchor links — prefixed with / so they navigate correctly from other pages
   { label: 'How It Works', href: '/#how-it-works' },
   { label: 'Missions',     href: '/missions'       },
-  { label: 'For Partners', href: '/#partners'      },
-  // Page links — activate as each page is built
-  { label: 'About',        href: '/about'          },
   { label: 'Rewards',      href: '/rewards'        },
+  { label: 'For Partners', href: '/partners'        },
+  { label: 'About',        href: '/about'          },
   // { label: 'Marketplace', href: '/marketplace' },
   // { label: 'Contact',     href: '/contact'     },
 ]
@@ -53,6 +51,7 @@ export const PAGES = [
   { label: 'About',             href: '/about',       status: 'live'     },
   { label: 'Missions',          href: '/missions',    status: 'live'     },
   { label: 'Rewards',           href: '/rewards',     status: 'live'     },
+  { label: 'For Partners',      href: '/partners',    status: 'live'     },
   { label: 'Marketplace',       href: '/marketplace', status: 'planned'  },
   { label: 'Get in Touch',      href: '/contact',     status: 'planned'  },
   { label: 'Join the Waitlist', href: '/waitlist',    status: 'live'     },

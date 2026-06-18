@@ -10,6 +10,7 @@
 // Stage 7  ✓ Beta / Waitlist flow (modal + /waitlist page)
 // Stage 8  ✓ PageLoader — initial load + page transition support
 // Stage 9  ✓ About page (/about) + multi-page routing foundation
+// Stage 10 ✓ Missions (/missions) + Rewards (/rewards) + Partners (/partners)
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useEffect, useState } from 'react'
@@ -23,6 +24,7 @@ import WaitlistPage  from '@/components/waitlist/WaitlistPage'
 import AboutPage     from '@/pages/AboutPage'
 import RewardsPage   from '@/pages/RewardsPage'
 import MissionsPage  from '@/pages/MissionsPage'
+import PartnersPage  from '@/pages/PartnersPage'
 
 // ── Global background + loader ────────────────────────────────────────────────
 import PageBackground from '@/components/layout/PageBackground'
@@ -125,6 +127,8 @@ function LandingPage() {
 //   /           → LandingPage (Home)
 //   /about      → AboutPage
 //   /rewards    → RewardsPage
+//   /missions   → MissionsPage
+//   /partners   → PartnersPage
 //   /waitlist   → WaitlistPage (standalone signup page)
 //
 // All routes share: WaitlistProvider + WaitlistGate (modal + interceptor)
@@ -171,6 +175,7 @@ export default function App() {
     path === '/about'    ? AboutPage    :
     path === '/rewards'  ? RewardsPage  :
     path === '/missions' ? MissionsPage :
+    path === '/partners' ? PartnersPage :
     path === '/waitlist' ? WaitlistPage :
                            LandingPage
 

@@ -41,12 +41,12 @@ export default function MobileMenu({ open, onClose }) {
       className="fixed inset-0 z-50 bg-bg-base flex flex-col lg:hidden"
     >
       {/* Top bar */}
-      <div className="flex items-center justify-between px-5 h-16 border-b border-white/[0.06] flex-shrink-0">
-        <a href="/" onClick={onClose} className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple">
+      <div className="flex items-center justify-between px-5 h-20 border-b border-white/[0.06] flex-shrink-0">
+        <a href="/" onClick={onClose} className="flex items-center self-center rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple">
           <img
             src={LOGOS.main}
             alt="PLEARN"
-            className="h-11 w-auto"
+            className="h-14 w-auto"
           />
         </a>
 

@@ -124,6 +124,16 @@ const VARIANTS = {
       mobileShow: 'xl', delay: 2.5, duration: 8.8, blur: '2px', opacity: 0.040 },
   ],
 
+  partners: [
+    // Subtle purple — far top-left, professional/editorial
+    { src: COINS.purpleStyled, size: 240, pos: { left: '-70px', top: '8%' },
+      mobileShow: 'xl', delay: 0,   duration: 10.0, blur: '2.5px', opacity: 0.038 },
+
+    // Blue — far bottom-right
+    { src: COINS.blue,         size: 180, pos: { right: '-50px', bottom: '10%' },
+      mobileShow: 'xl', delay: 2.5, duration: 9.2,  blur: '2px',   opacity: 0.034 },
+  ],
+
   missions: [
     // Purple — far top-left corner
     { src: COINS.purpleStyled, size: 260, pos: { left: '-75px', top: '6%' },
