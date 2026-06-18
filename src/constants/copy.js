@@ -21,7 +21,7 @@ export const WHAT_IS_PLEARN = {
     {
       id:    'play',
       title: 'Play a Mission',
-      body:  'Pick a real-world money scenario. No tutorials. No right answers on a plate.',
+      body:  'Progress through missions and levels built around real-world money decisions. No tutorials. No right answers on a plate.',
     },
     {
       id:    'learn',
@@ -43,7 +43,7 @@ export const HOW_IT_WORKS = {
     {
       number: '01',
       title:  'Choose your challenge.',
-      body:   "Pick a mission — budgeting your first paycheck, saving for a big goal, or handling a financial emergency. Every scenario is grounded in something real.",
+      body:   "Progress through tasks, missions, and levels focused on budgeting, saving, credit, and everyday money decisions. Every challenge is grounded in something real.",
     },
     {
       number: '02',

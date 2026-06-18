@@ -19,8 +19,10 @@ import { WaitlistProvider, useWaitlist } from '@/context/WaitlistContext'
 import WaitlistModal from '@/components/waitlist/WaitlistModal'
 
 // ── Pages ────────────────────────────────────────────────────────────────────
-import WaitlistPage from '@/components/waitlist/WaitlistPage'
-import AboutPage    from '@/pages/AboutPage'
+import WaitlistPage  from '@/components/waitlist/WaitlistPage'
+import AboutPage     from '@/pages/AboutPage'
+import RewardsPage   from '@/pages/RewardsPage'
+import MissionsPage  from '@/pages/MissionsPage'
 
 // ── Global background + loader ────────────────────────────────────────────────
 import PageBackground from '@/components/layout/PageBackground'
@@ -122,6 +124,7 @@ function LandingPage() {
 // Route table:
 //   /           → LandingPage (Home)
 //   /about      → AboutPage
+//   /rewards    → RewardsPage
 //   /waitlist   → WaitlistPage (standalone signup page)
 //
 // All routes share: WaitlistProvider + WaitlistGate (modal + interceptor)
@@ -166,6 +169,8 @@ export default function App() {
   // Route → page component
   const Page =
     path === '/about'    ? AboutPage    :
+    path === '/rewards'  ? RewardsPage  :
+    path === '/missions' ? MissionsPage :
     path === '/waitlist' ? WaitlistPage :
                            LandingPage
 

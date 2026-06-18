@@ -37,10 +37,11 @@ export const CTA = {
 export const NAV_LINKS = [
   // Home-page anchor links — prefixed with / so they navigate correctly from other pages
   { label: 'How It Works', href: '/#how-it-works' },
-  { label: 'Missions',     href: '/#gameplay'      },
+  { label: 'Missions',     href: '/missions'       },
   { label: 'For Partners', href: '/#partners'      },
   // Page links — activate as each page is built
   { label: 'About',        href: '/about'          },
+  { label: 'Rewards',      href: '/rewards'        },
   // { label: 'Marketplace', href: '/marketplace' },
   // { label: 'Contact',     href: '/contact'     },
 ]
@@ -49,7 +50,9 @@ export const NAV_LINKS = [
 // status: 'live' | 'building' | 'planned'
 export const PAGES = [
   { label: 'Home',              href: '/',            status: 'live'     },
-  { label: 'About',             href: '/about',       status: 'building' },
+  { label: 'About',             href: '/about',       status: 'live'     },
+  { label: 'Missions',          href: '/missions',    status: 'live'     },
+  { label: 'Rewards',           href: '/rewards',     status: 'live'     },
   { label: 'Marketplace',       href: '/marketplace', status: 'planned'  },
   { label: 'Get in Touch',      href: '/contact',     status: 'planned'  },
   { label: 'Join the Waitlist', href: '/waitlist',    status: 'live'     },

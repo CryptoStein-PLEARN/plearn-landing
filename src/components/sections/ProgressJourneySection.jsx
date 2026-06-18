@@ -27,7 +27,7 @@ const STEPS = [
   {
     num:         '01',
     title:       'Start a real-life mission',
-    body:        'Pick a financial scenario — your first paycheck, an unexpected bill, or saving for a big goal. No tutorials, just real situations.',
+    body:        'Progress through tasks, missions, and levels that guide you through real money decisions — your first paycheck, an unexpected bill, saving for a goal. No tutorials, just real situations.',
     nodeColor:   '#FF5533',
     nodeBg:      '#150906',   /* opaque — MUST cover the rail line */
     nodeGlow:    '0 0 0 3px rgba(255,85,51,0.18), 0 0 28px rgba(255,85,51,0.70)',

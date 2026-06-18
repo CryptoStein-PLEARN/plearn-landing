@@ -114,6 +114,26 @@ const VARIANTS = {
       mobileShow: 'always', delay: 3.5, duration: 8.8, blur: '0px', opacity: 0.07 },
   ],
 
+  rewards: [
+    // Purple — far top-left, mostly off-screen
+    { src: COINS.purpleStyled, size: 280, pos: { left: '-80px', top: '8%' },
+      mobileShow: 'xl', delay: 0,   duration: 9.5, blur: '2.5px', opacity: 0.045 },
+
+    // Orange — far bottom-right, mostly off-screen
+    { src: COINS.orange,       size: 220, pos: { right: '-60px', bottom: '8%' },
+      mobileShow: 'xl', delay: 2.5, duration: 8.8, blur: '2px', opacity: 0.040 },
+  ],
+
+  missions: [
+    // Purple — far top-left corner
+    { src: COINS.purpleStyled, size: 260, pos: { left: '-75px', top: '6%' },
+      mobileShow: 'xl', delay: 0,   duration: 9.5, blur: '2.5px', opacity: 0.042 },
+
+    // Blue — far bottom-right corner
+    { src: COINS.blue,         size: 200, pos: { right: '-55px', bottom: '6%' },
+      mobileShow: 'xl', delay: 2.0, duration: 8.8, blur: '2px',   opacity: 0.038 },
+  ],
+
   default: [
     // Purple — top-left, tablet+
     { src: COINS.purpleStyled, size: 280, pos: { left: '-30px', top: '12%' },
