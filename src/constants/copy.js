@@ -9,7 +9,7 @@ export const HERO = {
   sub:          "PLEARN is a gamified financial literacy game where you complete real-world missions, make smart money choices, and earn rewards — without a single boring lecture.",
   ctaPrimary:   'Join the Beta',
   ctaSecondary: 'Explore the Demo',
-  microcopy:    'Built with support from EIT Digital · Now in active beta',
+  microcopy:    'Now in active beta',
 }
 
 export const WHAT_IS_PLEARN = {
@@ -84,9 +84,8 @@ export const PROGRESS = {
 export const CREDIBILITY = {
   preTag:   'Why PLEARN',
   headline: 'Built with purpose. Backed for impact.',
-  body:     "Financial literacy is a life skill most people learn too late — or not at all. We built PLEARN to change that. Currently in active beta and developed with support from EIT Digital, PLEARN is designed specifically for youth financial education. We're actively partnering with schools, banks, and youth programs to bring it where it matters most.",
+  body:     "Financial literacy is a life skill most people learn too late — or not at all. We built PLEARN to change that. PLEARN is designed specifically for youth financial education. We're actively partnering with schools, banks, and youth programs to bring it where it matters most.",
   badges: [
-    { id: 'eit',   label: 'Supported by EIT Digital'             },
     { id: 'beta',  label: 'Currently in Active Beta'              },
     { id: 'youth', label: 'Designed for Youth Financial Education' },
     { id: 'pilot', label: 'Open for Pilot Partnerships'           },

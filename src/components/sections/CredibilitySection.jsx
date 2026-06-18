@@ -15,21 +15,6 @@ const GRID = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
 
 // Visual config per badge — maps to CREDIBILITY.badges ids
 const BADGE_CONFIG = {
-  eit: {
-    color:       '#573EFB',
-    border:      'rgba(87,62,251,0.65)',
-    borderHov:   'rgba(87,62,251,1.00)',
-    cardBg:      'radial-gradient(ellipse 90% 55% at 50% 0%, rgba(87,62,251,0.14) 0%, #0C0820 55%, #080520 100%)',
-    outerGlow:   '0 0 18px 2px rgba(87,62,251,0.48), 0 0 52px 5px rgba(87,62,251,0.22)',
-    outerGlowH:  '0 0 26px 4px rgba(87,62,251,0.68), 0 0 78px 8px rgba(87,62,251,0.34)',
-    floorColor:  'rgba(87,62,251,0.28)',
-    accentBar:   'linear-gradient(90deg, #573EFB, #8926E7)',
-    body:        'Developed with support from EIT Digital — one of Europe\'s leading innovation and education programs.',
-    // Shield icon SVG path
-    iconPath:    'M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z',
-    iconViewBox: '0 0 24 24',
-    delay:       0,
-  },
   beta: {
     color:       '#FE5934',
     border:      'rgba(254,89,52,0.62)',
@@ -269,7 +254,7 @@ export default function CredibilitySection() {
         </div>
 
         {/* ── Badge cards — 2×2 on md, 4-col on lg ─────────────────────── */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 pb-8">
           {CREDIBILITY.badges.map((badge) => (
             <BadgeCard
               key={badge.id}
@@ -279,25 +264,7 @@ export default function CredibilitySection() {
           ))}
         </div>
 
-        {/* ── EIT Digital note ─────────────────────────────────────────── */}
-        <div className="flex justify-center mt-12" style={reveal(580)}>
-          <div
-            className="flex items-center gap-3 px-5 py-2.5 rounded-full"
-            style={{
-              background: 'rgba(87,62,251,0.08)',
-              border:     '1px solid rgba(87,62,251,0.22)',
-              boxShadow:  '0 0 18px rgba(87,62,251,0.14)',
-            }}
-          >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
-              stroke="rgba(87,62,251,0.90)" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
-              <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
-            </svg>
-            <p className="font-rem text-caption text-text-muted">
-              Built with support from EIT Digital · Currently in active beta
-            </p>
-          </div>
-        </div>
+
 
       </div>
     </section>

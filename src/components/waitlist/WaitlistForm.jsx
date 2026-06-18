@@ -53,7 +53,6 @@ const HOW_HEARD = [
   { value: 'social',     label: 'Social media'         },
   { value: 'friend',     label: 'Friend or colleague'  },
   { value: 'university', label: 'University or school' },
-  { value: 'eit',        label: 'EIT Digital'          },
   { value: 'event',      label: 'Event or conference'  },
   { value: 'search',     label: 'Search engine'        },
   { value: 'other',      label: 'Other'                },
@@ -179,10 +178,10 @@ function SubmitErrorBanner({ type, onDismiss }) {
             : <>
                 Something went wrong. Please try again or email us at{' '}
                 <a
-                  href="mailto:hello@plearngame.com"
+                  href="mailto:info@plearn.io"
                   style={{ color: 'inherit', textDecoration: 'underline' }}
                 >
-                  hello@plearngame.com
+                  info@plearn.io
                 </a>
                 .
               </>
@@ -298,12 +297,7 @@ function SuccessState({ onClose }) {
         Continue exploring PLEARN ›
       </button>
 
-      {/* EIT backer line */}
-      <p className="font-rem" style={{
-        fontSize: '0.74rem', color: 'rgba(160,140,200,0.50)', marginTop: '1.25rem',
-      }}>
-        {BETA.backer}
-      </p>
+
     </div>
   )
 }

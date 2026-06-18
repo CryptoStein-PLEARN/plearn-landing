@@ -48,7 +48,7 @@ export default function Navbar() {
                 Transparent PNG — works on both dark and light backgrounds.
                 Source: Assets/UI/PLEARN---Main-Logo.png (1000×1066, RGBA) */}
             <a
-              href="#"
+              href="/"
               aria-label="PLEARN — home"
               className="flex-shrink-0 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple focus-visible:ring-offset-2 focus-visible:ring-offset-bg-base"
             >

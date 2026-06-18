@@ -7,13 +7,12 @@ export const SITE = {
   name:        'PLEARN',
   tagline:     'Play · Learn · Earn',
   description: 'Gamified financial literacy. Complete missions, make real money choices, earn rewards.',
-  url:         'https://plearngame.com',
+  url:         'https://plearngame.netlify.app',
 }
 
 // ── Contact ──────────────────────────────────────────────────────────────────
-// Q3: mailto for now — swap href value here to point to a form URL later.
 export const CONTACT = {
-  email:          'hello@plearngame.com',
+  email:          'info@plearn.io',
   partnerSubject: 'PLEARN Pilot Partnership',
   get partnerHref() {
     return `mailto:${this.email}?subject=${encodeURIComponent(this.partnerSubject)}`
@@ -21,32 +20,37 @@ export const CONTACT = {
 }
 
 // ── CTA links ─────────────────────────────────────────────────────────────────
-// Q2: Waitlist is front-end only. '#waitlist' scrolls to FinalCTA section.
+// joinBeta / joinWaitlist → opens the waitlist modal (intercepted by App.jsx click handler)
+// exploreDemo → scrolls to the Gameplay section until a demo URL is available
 export const CTA = {
   joinBeta:        '#waitlist',
-  exploreDemo:     '#',          // replace with demo URL when ready
+  exploreDemo:     '#gameplay',   // TODO: replace with demo URL when ready
   previewMissions: '#gameplay',
   joinWaitlist:    '#waitlist',
   get partnerPilot() { return CONTACT.partnerHref },
 }
 
 // ── Nav links ─────────────────────────────────────────────────────────────────
+// Only include links that go somewhere real. "About" removed until page exists.
 export const NAV_LINKS = [
   { label: 'How It Works', href: '#how-it-works' },
   { label: 'Missions',     href: '#gameplay'      },
   { label: 'For Partners', href: '#partners'      },
-  { label: 'About',        href: '#'              },
 ]
 
 // ── Social ────────────────────────────────────────────────────────────────────
+// Leave empty until official social accounts are live.
+// The footer social section renders conditionally and will hide when this is [].
 export const SOCIAL = [
-  { label: 'Instagram', href: '#' },
-  { label: 'LinkedIn',  href: '#' },
-  { label: 'TikTok',    href: '#' },
-  { label: 'X',         href: '#' },
+  { label: 'Instagram', href: 'https://www.instagram.com/officialplearn/' },
+  { label: 'LinkedIn',  href: 'https://www.linkedin.com/company/officialplearn/' },
+  { label: 'TikTok',    href: 'https://www.tiktok.com/@financialliteracy_' },
+  { label: 'X',         href: 'https://x.com/OfficialPlearn' },
 ]
 
 // ── Footer link groups ────────────────────────────────────────────────────────
+// Not currently rendered by Footer (Footer uses its own hardcoded link structure).
+// Kept here for future use when Footer is migrated to use this config.
 export const FOOTER_LINKS = [
   {
     group: 'Product',
@@ -54,7 +58,6 @@ export const FOOTER_LINKS = [
       { label: 'How It Works', href: '#how-it-works' },
       { label: 'Missions',     href: '#gameplay'     },
       { label: 'Rewards',      href: '#rewards'      },
-      { label: 'The Game',     href: '#'             },
     ],
   },
   {
@@ -69,24 +72,13 @@ export const FOOTER_LINKS = [
   {
     group: 'Company',
     links: [
-      { label: 'About',   href: '#'                                       },
-      { label: 'Careers', href: '#'                                       },
-      { label: 'Press',   href: '#'                                       },
       { label: 'Contact', href: `mailto:${CONTACT.email}`, external: true },
-    ],
-  },
-  {
-    group: 'Legal',
-    links: [
-      { label: 'Privacy Policy',   href: '#' },
-      { label: 'Terms of Service', href: '#' },
-      { label: 'Cookie Policy',    href: '#' },
     ],
   },
 ]
 
 export const BETA = {
   label:     'Currently in Beta',
-  backer:    'Built with support from EIT Digital',
-  microcopy: 'Built with support from EIT Digital · Now in active beta',
+  backer:    '',
+  microcopy: 'Now in active beta',
 }

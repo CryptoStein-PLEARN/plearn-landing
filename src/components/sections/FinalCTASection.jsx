@@ -398,13 +398,7 @@ export default function FinalCTASection() {
                   </a>
                 </div>
 
-                {/* Credibility / EIT line */}
-                <div className="flex items-center gap-2">
-                  <ShieldIcon />
-                  <span className="font-rem" style={{ fontSize: '0.80rem', color: 'rgba(180,160,220,0.62)' }}>
-                    {BETA.backer}
-                  </span>
-                </div>
+
 
               </div>
             </div>

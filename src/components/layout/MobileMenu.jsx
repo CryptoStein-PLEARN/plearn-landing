@@ -42,7 +42,7 @@ export default function MobileMenu({ open, onClose }) {
     >
       {/* Top bar */}
       <div className="flex items-center justify-between px-5 h-16 border-b border-white/[0.06] flex-shrink-0">
-        <a href="#" onClick={onClose} className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple">
+        <a href="/" onClick={onClose} className="rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-plearn-purple">
           <img
             src={LOGOS.main}
             alt="PLEARN"
@@ -90,7 +90,7 @@ export default function MobileMenu({ open, onClose }) {
           Join the Beta
         </Button>
         <p className="font-rem text-caption text-text-dim text-center mt-3">
-          Currently in active beta · Supported by EIT Digital
+          Now in active beta
         </p>
       </div>
     </div>

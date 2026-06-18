@@ -57,7 +57,3 @@ export const MOCKUPS = {
   heroGamePreview: '/assets/mockups/hero-game-preview.webp',
 }
 
-// ⚠ Add EIT Digital logo file to public/assets/logos/ and update path below.
-export const PARTNER_LOGOS = {
-  eitDigital: '/assets/logos/eit-digital-logo.png',
-}

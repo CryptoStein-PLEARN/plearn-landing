@@ -227,7 +227,7 @@ export default function Footer() {
 
             {/* ── Col 1: Brand ────────────────────────────────────────── */}
             <div className="flex flex-col gap-5">
-              <a href="#" aria-label="PLEARN home">
+              <a href="/" aria-label="PLEARN home">
                 <img
                   src={LOGOS.main}
                   alt="PLEARN"
@@ -250,17 +250,7 @@ export default function Footer() {
                 PLEARN is a gamified financial literacy experience helping young people build real-world money skills through missions, choices, and rewards.
               </p>
 
-              <div className="flex items-center gap-2">
-                <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M8 1.5 L14 4 L14 8.5 C14 11.5 11.5 14 8 15 C4.5 14 2 11.5 2 8.5 L2 4 Z"
-                    stroke="rgba(137,38,231,0.72)" strokeWidth="1.3" fill="none" />
-                  <path d="M5.5 8 L7 9.5 L10.5 6" stroke="rgba(137,38,231,0.88)" strokeWidth="1.3"
-                    strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-                <span className="font-rem" style={{ fontSize: '0.78rem', color: 'rgba(180,160,220,0.60)' }}>
-                  {BETA.backer}
-                </span>
-              </div>
+
             </div>
 
             {/* ── Col 2: Navigate ─────────────────────────────────────── */}
@@ -271,7 +261,6 @@ export default function Footer() {
                 <FLink href="#how-it-works">How It Works</FLink>
                 <FLink href="#gameplay">Missions</FLink>
                 <FLink href="#partners">For Partners</FLink>
-                <FLink href="#">About</FLink>
               </nav>
 
               {/* Join the Beta CTA button */}
@@ -340,53 +329,56 @@ export default function Footer() {
                 {CONTACT.email}
               </a>
 
-              {/* Thin divider */}
-              <div style={{
-                height: '1px', marginBottom: '1.25rem',
-                background: 'linear-gradient(90deg, rgba(137,38,231,0.32), rgba(255,255,255,0.05) 75%, transparent)',
-              }} />
-
-              <p className="font-rem font-bold uppercase"
-                style={{ fontSize: '0.65rem', letterSpacing: '0.16em', color: 'rgba(255,255,255,0.82)', marginBottom: '0.85rem' }}>
-                Follow us
-              </p>
-
-              {/* Social icon squares */}
-              <div className="flex items-center gap-2.5 flex-wrap">
-                {SOCIAL.map(({ label, href }) => {
-                  const Icon = SOCIAL_ICON_MAP[label]
-                  if (!Icon) return null
-                  return (
-                    <a
-                      key={label}
-                      href={href}
-                      aria-label={label}
-                      className="flex items-center justify-center transition-all duration-200"
-                      style={{
-                        width: '40px', height: '40px', borderRadius: '9px',
-                        background: 'rgba(137,38,231,0.09)',
-                        border: '1.5px solid rgba(137,38,231,0.40)',
-                        boxShadow: '0 0 10px rgba(137,38,231,0.10)',
-                        color: 'rgba(180,140,230,0.78)',
-                      }}
-                      onMouseEnter={e => {
-                        e.currentTarget.style.background = 'rgba(137,38,231,0.22)'
-                        e.currentTarget.style.borderColor = 'rgba(180,80,255,0.75)'
-                        e.currentTarget.style.boxShadow = '0 0 18px rgba(137,38,231,0.38)'
-                        e.currentTarget.style.color = '#FFFFFF'
-                      }}
-                      onMouseLeave={e => {
-                        e.currentTarget.style.background = 'rgba(137,38,231,0.09)'
-                        e.currentTarget.style.borderColor = 'rgba(137,38,231,0.40)'
-                        e.currentTarget.style.boxShadow = '0 0 10px rgba(137,38,231,0.10)'
-                        e.currentTarget.style.color = 'rgba(180,140,230,0.78)'
-                      }}
-                    >
-                      <Icon />
-                    </a>
-                  )
-                })}
-              </div>
+              {/* Social icon squares — only shown when SOCIAL accounts are live */}
+              {SOCIAL.length > 0 && (
+                <>
+                  <div style={{
+                    height: '1px', marginBottom: '1.25rem',
+                    background: 'linear-gradient(90deg, rgba(137,38,231,0.32), rgba(255,255,255,0.05) 75%, transparent)',
+                  }} />
+                  <p className="font-rem font-bold uppercase"
+                    style={{ fontSize: '0.65rem', letterSpacing: '0.16em', color: 'rgba(255,255,255,0.82)', marginBottom: '0.85rem' }}>
+                    Follow us
+                  </p>
+                  <div className="flex items-center gap-2.5 flex-wrap">
+                    {SOCIAL.map(({ label, href }) => {
+                      const Icon = SOCIAL_ICON_MAP[label]
+                      if (!Icon) return null
+                      return (
+                        <a
+                          key={label}
+                          href={href}
+                          aria-label={label}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center justify-center transition-all duration-200"
+                          style={{
+                            width: '40px', height: '40px', borderRadius: '9px',
+                            background: 'rgba(137,38,231,0.09)',
+                            border: '1.5px solid rgba(137,38,231,0.40)',
+                            boxShadow: '0 0 10px rgba(137,38,231,0.10)',
+                            color: 'rgba(180,140,230,0.78)',
+                          }}
+                          onMouseEnter={e => {
+                            e.currentTarget.style.background = 'rgba(137,38,231,0.22)'
+                            e.currentTarget.style.borderColor = 'rgba(180,80,255,0.75)'
+                            e.currentTarget.style.boxShadow = '0 0 18px rgba(137,38,231,0.38)'
+                            e.currentTarget.style.color = '#FFFFFF'
+                          }}
+                          onMouseLeave={e => {
+                            e.currentTarget.style.background = 'rgba(137,38,231,0.09)'
+                            e.currentTarget.style.borderColor = 'rgba(137,38,231,0.40)'
+                            e.currentTarget.style.boxShadow = '0 0 10px rgba(137,38,231,0.10)'
+                            e.currentTarget.style.color = 'rgba(180,140,230,0.78)'
+                          }}
+                        >
+                          <Icon />
+                        </a>
+                      )
+                    })}
+                  </div>
+                </>
+              )}
             </div>
 
           </div>
@@ -418,29 +410,11 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Policy links with dot separators */}
-            <div className="flex items-center gap-2 flex-shrink-0">
-              {['Privacy Policy', 'Terms', 'Cookies'].map((label, i) => (
-                <div key={label} className="flex items-center gap-2">
-                  {i > 0 && (
-                    <span aria-hidden="true" style={{
-                      width: '4px', height: '4px', borderRadius: '50%',
-                      background: 'rgba(137,38,231,0.70)',
-                      display: 'inline-block', flexShrink: 0,
-                    }} />
-                  )}
-                  <a
-                    href="#"
-                    className="font-rem transition-colors duration-200"
-                    style={{ fontSize: '0.78rem', color: 'rgba(180,160,220,0.58)', whiteSpace: 'nowrap' }}
-                    onMouseEnter={e => e.currentTarget.style.color = '#FFFFFF'}
-                    onMouseLeave={e => e.currentTarget.style.color = 'rgba(180,160,220,0.58)'}
-                  >
-                    {label}
-                  </a>
-                </div>
-              ))}
-            </div>
+            {/* Legal — plain text until policy pages are published */}
+            <p className="font-rem flex-shrink-0"
+              style={{ fontSize: '0.74rem', color: 'rgba(160,140,200,0.40)', whiteSpace: 'nowrap' }}>
+              Privacy Policy · Terms · Cookies — coming soon
+            </p>
 
           </div>
         </div>
