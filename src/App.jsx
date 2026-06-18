@@ -8,9 +8,10 @@
 // Stage 5  ✓ ProgressJourneySection + CredibilitySection + ForPartnersSection
 // Stage 6  ✓ FinalCTASection + Footer
 // Stage 7  ✓ Beta / Waitlist flow (modal + /waitlist page)
+// Stage 8  ✓ PageLoader — initial load + page transition support
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { useEffect }   from 'react'
+import { useEffect, useState } from 'react'
 
 // ── Waitlist ─────────────────────────────────────────────────────────────────
 import { WaitlistProvider, useWaitlist } from '@/context/WaitlistContext'
@@ -19,6 +20,9 @@ import WaitlistPage   from '@/components/waitlist/WaitlistPage'
 
 // ── Global background ────────────────────────────────────────────────────────
 import PageBackground from '@/components/layout/PageBackground'
+
+// ── Page loader ───────────────────────────────────────────────────────────────
+import PageLoader from '@/components/ui/PageLoader'
 
 // ── Stage 2 ✓ ───────────────────────────────────────────────────────────────
 import Navbar      from '@/components/layout/Navbar'
@@ -128,17 +132,59 @@ function LandingPage() {
 // No react-router-dom. Routing is handled by checking window.location.pathname.
 // Vite's SPA fallback (appType: 'spa') covers dev server.
 // public/_redirects covers Netlify production deployment.
+//
+// PageLoader lifecycle:
+//   1. Mounts visible (covers any flash of unstyled content)
+//   2. Waits for the later of: window 'load' event OR MIN_DISPLAY_MS
+//   3. Fades out smoothly; the component unmounts after the CSS transition
 // ─────────────────────────────────────────────────────────────────────────────
+
+// Minimum time the loader stays on screen (ms).
+// Long enough to feel intentional; short enough to not annoy.
+const MIN_DISPLAY_MS = 700
+
 export default function App() {
+  const [loaderVisible, setLoaderVisible] = useState(true)
+
+  useEffect(() => {
+    const t0 = Date.now()
+
+    const dismiss = () => {
+      const elapsed   = Date.now() - t0
+      const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed)
+      setTimeout(() => setLoaderVisible(false), remaining)
+    }
+
+    if (document.readyState === 'complete') {
+      dismiss()
+    } else {
+      window.addEventListener('load', dismiss, { once: true })
+    }
+
+    // Safeguard: always dismiss after 3 s even if 'load' never fires
+    const safeId = setTimeout(() => setLoaderVisible(false), 3000)
+
+    return () => {
+      window.removeEventListener('load', dismiss)
+      clearTimeout(safeId)
+    }
+  }, [])
+
   const isWaitlistPage = window.location.pathname === '/waitlist'
 
-  if (isWaitlistPage) {
-    return <WaitlistPage />
-  }
-
   return (
-    <WaitlistProvider>
-      <LandingPage />
-    </WaitlistProvider>
+    <>
+      {/* Loader renders above every route — z-9999 */}
+      <PageLoader visible={loaderVisible} />
+
+      {isWaitlistPage
+        ? <WaitlistPage />
+        : (
+          <WaitlistProvider>
+            <LandingPage />
+          </WaitlistProvider>
+        )
+      }
+    </>
   )
 }
