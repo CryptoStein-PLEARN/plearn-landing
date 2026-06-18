@@ -31,11 +31,28 @@ export const CTA = {
 }
 
 // ── Nav links ─────────────────────────────────────────────────────────────────
-// Only include links that go somewhere real. "About" removed until page exists.
+// Site pages: Home · About · Marketplace · Get in Touch · Waitlist
+// Anchor links (#) point to Home page sections.
+// Page links (/about etc.) activate once each page is built.
 export const NAV_LINKS = [
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Missions',     href: '#gameplay'      },
-  { label: 'For Partners', href: '#partners'      },
+  // Home-page anchor links — prefixed with / so they navigate correctly from other pages
+  { label: 'How It Works', href: '/#how-it-works' },
+  { label: 'Missions',     href: '/#gameplay'      },
+  { label: 'For Partners', href: '/#partners'      },
+  // Page links — activate as each page is built
+  { label: 'About',        href: '/about'          },
+  // { label: 'Marketplace', href: '/marketplace' },
+  // { label: 'Contact',     href: '/contact'     },
+]
+
+// ── Pages (full route list for router + footer) ────────────────────────────────
+// status: 'live' | 'building' | 'planned'
+export const PAGES = [
+  { label: 'Home',              href: '/',            status: 'live'     },
+  { label: 'About',             href: '/about',       status: 'building' },
+  { label: 'Marketplace',       href: '/marketplace', status: 'planned'  },
+  { label: 'Get in Touch',      href: '/contact',     status: 'planned'  },
+  { label: 'Join the Waitlist', href: '/waitlist',    status: 'live'     },
 ]
 
 // ── Social ────────────────────────────────────────────────────────────────────
@@ -51,6 +68,7 @@ export const SOCIAL = [
 // ── Footer link groups ────────────────────────────────────────────────────────
 // Not currently rendered by Footer (Footer uses its own hardcoded link structure).
 // Kept here for future use when Footer is migrated to use this config.
+// No Tokenomics — removed from site map entirely.
 export const FOOTER_LINKS = [
   {
     group: 'Product',
@@ -58,21 +76,23 @@ export const FOOTER_LINKS = [
       { label: 'How It Works', href: '#how-it-works' },
       { label: 'Missions',     href: '#gameplay'     },
       { label: 'Rewards',      href: '#rewards'      },
-    ],
-  },
-  {
-    group: 'Partners',
-    links: [
-      { label: 'For Schools',         href: '#partners'                   },
-      { label: 'For Banks',           href: '#partners'                   },
-      { label: 'For Youth Programs',  href: '#partners'                   },
-      { label: 'Partner for a Pilot', href: CONTACT.partnerHref, external: true },
+      { label: 'Marketplace',  href: '/marketplace'  },   // activate when page is live
     ],
   },
   {
     group: 'Company',
     links: [
-      { label: 'Contact', href: `mailto:${CONTACT.email}`, external: true },
+      { label: 'About',         href: '/about'                              },  // activate when live
+      { label: 'For Partners',  href: '#partners'                           },
+      { label: 'Get in Touch',  href: '/contact'                            },  // activate when live
+      { label: 'Partner Email', href: CONTACT.partnerHref, external: true   },
+    ],
+  },
+  {
+    group: 'Join',
+    links: [
+      { label: 'Join the Waitlist', href: '/waitlist'                           },
+      { label: 'Contact Us',        href: `mailto:${CONTACT.email}`, external: true },
     ],
   },
 ]

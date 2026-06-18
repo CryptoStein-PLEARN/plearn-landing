@@ -65,17 +65,28 @@ export default function MobileMenu({ open, onClose }) {
       {/* Nav links */}
       <nav className="flex-1 flex flex-col justify-center px-5" aria-label="Mobile navigation">
         <ul className="flex flex-col gap-1" role="list">
-          {NAV_LINKS.map((link) => (
-            <li key={link.label}>
-              <a
-                href={link.href}
-                onClick={onClose}
-                className="flex items-center h-14 font-karantina text-2xl text-text-muted hover:text-text-plearn transition-colors duration-150"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
+          {NAV_LINKS.map((link) => {
+              const isHome = window.location.pathname === '/'
+              const href = isHome && link.href.startsWith('/#')
+                ? link.href.slice(1)
+                : link.href
+              const isActive = link.href.startsWith('/')
+                && !link.href.startsWith('/#')
+                && window.location.pathname === link.href
+              return (
+                <li key={link.label}>
+                  <a
+                    href={href}
+                    onClick={onClose}
+                    aria-current={isActive ? 'page' : undefined}
+                    className="flex items-center h-14 font-karantina text-2xl transition-colors duration-150"
+                    style={{ color: isActive ? '#F4F0FF' : undefined }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              )
+            })}
         </ul>
       </nav>
 

@@ -64,16 +64,32 @@ export default function Navbar() {
               className="hidden lg:flex items-center gap-8"
               role="list"
             >
-              {NAV_LINKS.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="font-rem text-nav font-medium text-text-muted hover:text-text-plearn transition-colors duration-200"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              {NAV_LINKS.map((link) => {
+                // On the home page, strip the leading / from /#hash links so the
+                // browser smooth-scrolls rather than reloading. On other pages,
+                // keep the full /# path so clicking navigates back to Home.
+                const isHome = window.location.pathname === '/'
+                const href = isHome && link.href.startsWith('/#')
+                  ? link.href.slice(1)   // '/#how-it-works' → '#how-it-works'
+                  : link.href
+                const isActive = link.href.startsWith('/')
+                  && !link.href.startsWith('/#')
+                  && window.location.pathname === link.href
+                return (
+                  <li key={link.label}>
+                    <a
+                      href={href}
+                      aria-current={isActive ? 'page' : undefined}
+                      className="font-rem text-nav font-medium transition-colors duration-200"
+                      style={{ color: isActive ? '#F4F0FF' : undefined }}
+                      onMouseEnter={e => { if (!isActive) e.currentTarget.style.color = '#F4F0FF' }}
+                      onMouseLeave={e => { if (!isActive) e.currentTarget.style.color = '' }}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                )
+              })}
             </ul>
 
             {/* ── Desktop CTA ── */}

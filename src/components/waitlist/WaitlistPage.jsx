@@ -10,6 +10,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import PageBackground from '@/components/layout/PageBackground'
+import CoinBackground from '@/components/layout/CoinBackground'
 import WaitlistForm   from '@/components/waitlist/WaitlistForm'
 import { LOGOS }      from '@/constants/assets'
 
@@ -21,6 +22,8 @@ export default function WaitlistPage() {
 
       {/* ── Shared background atmosphere ── */}
       <PageBackground />
+      {/* ── Floating coin atmosphere ── */}
+      <CoinBackground variant="waitlist" />
 
       {/* ── Minimal header ── */}
       <header style={{ position: 'relative', zIndex: 10, padding: '1.25rem 1.5rem' }}>
