@@ -12,6 +12,12 @@
 [build.environment]
   NODE_VERSION = "20"
 
+# Serverless functions — "Ask Mentor" AI backend lives here.
+# Secrets (ANTHROPIC_API_KEY) are set in the Netlify dashboard, never in files.
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 # SPA fallback — same as public/_redirects, belt-and-suspenders
 [[redirects]]
   from   = "/*"
