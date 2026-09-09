@@ -231,6 +231,7 @@ export default function Footer() {
                 <img
                   src={LOGOS.main}
                   alt="PLEARN"
+                  loading="lazy"
                   style={{ height: '60px', width: 'auto', objectFit: 'contain', objectPosition: 'left' }}
                 />
               </a>
@@ -410,10 +411,11 @@ export default function Footer() {
               </p>
             </div>
 
-            {/* Legal — plain text until policy pages are published */}
+            {/* Legal links */}
             <p className="font-rem flex-shrink-0"
               style={{ fontSize: '0.74rem', color: 'rgba(160,140,200,0.40)', whiteSpace: 'nowrap' }}>
-              Privacy Policy · Terms · Cookies — coming soon
+              <a href="/privacy-policy" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Privacy Policy</a>
+              {' · '}Terms · Cookies — coming soon
             </p>
 
           </div>

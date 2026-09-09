@@ -83,6 +83,8 @@ export default function GameplayPreviewSection() {
   useEffect(() => {
     const el = borderRef.current
     if (!el) return
+    // Skip on mobile — saves a continuous rAF loop on low-power devices
+    if (window.matchMedia('(max-width: 767px)').matches) return
     // Respect user's motion preference — skip the rAF loop entirely
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     let frameId
@@ -377,6 +379,7 @@ export default function GameplayPreviewSection() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '7px' }}>
                       <img
                         src={COINS.purpleStyled} alt="" aria-hidden="true"
+                        loading="lazy"
                         style={{ width: '22px', height: '22px', objectFit: 'contain' }}
                       />
                       <span className="font-rem" style={{ fontSize: '0.83rem', color: '#9080BB', fontWeight: 600 }}>

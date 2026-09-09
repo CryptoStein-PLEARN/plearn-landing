@@ -13,18 +13,21 @@
 // Stage 10 ✓ Missions (/missions) + Rewards (/rewards) + Partners (/partners)
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, lazy, Suspense } from 'react'
 
 // ── Waitlist (global — wraps all pages) ───────────────────────────────────────
 import { WaitlistProvider, useWaitlist } from '@/context/WaitlistContext'
 import WaitlistModal from '@/components/waitlist/WaitlistModal'
 
 // ── Pages ────────────────────────────────────────────────────────────────────
+// WaitlistPage is small and referenced from any page — keep eager.
 import WaitlistPage  from '@/components/waitlist/WaitlistPage'
-import AboutPage     from '@/pages/AboutPage'
-import RewardsPage   from '@/pages/RewardsPage'
-import MissionsPage  from '@/pages/MissionsPage'
-import PartnersPage  from '@/pages/PartnersPage'
+// Sub-pages are lazy-loaded: their JS only downloads when the user navigates there.
+// This keeps the Home page bundle small and first-load fast.
+const AboutPage    = lazy(() => import('@/pages/AboutPage'))
+const RewardsPage  = lazy(() => import('@/pages/RewardsPage'))
+const MissionsPage = lazy(() => import('@/pages/MissionsPage'))
+const PartnersPage = lazy(() => import('@/pages/PartnersPage'))
 
 // ── Global background + loader ────────────────────────────────────────────────
 import PageBackground from '@/components/layout/PageBackground'
@@ -139,7 +142,7 @@ function LandingPage() {
 // ─────────────────────────────────────────────────────────────────────────────
 
 // Minimum time the loader stays on screen (ms).
-const MIN_DISPLAY_MS = 700
+const MIN_DISPLAY_MS = 400
 
 export default function App() {
   const [loaderVisible, setLoaderVisible] = useState(true)
@@ -187,7 +190,13 @@ export default function App() {
       {/* WaitlistProvider + global modal interceptor wrap ALL pages */}
       <WaitlistProvider>
         <WaitlistGate>
-          <Page />
+          {/* Suspense boundary for lazy-loaded sub-pages.
+              fallback={null} — PageLoader already covers the initial paint;
+              subsequent navigations show nothing while the chunk downloads
+              (fast on modern connections, typically <200ms). */}
+          <Suspense fallback={null}>
+            <Page />
+          </Suspense>
         </WaitlistGate>
       </WaitlistProvider>
     </>

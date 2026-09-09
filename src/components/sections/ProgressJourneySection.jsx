@@ -502,7 +502,7 @@ export default function ProgressJourneySection() {
               border: '1px solid rgba(137,38,231,0.22)',
               boxShadow: '0 0 18px rgba(137,38,231,0.14)',
             }}>
-            <img src={COINS.purpleStyled} alt="" aria-hidden="true" className="w-4 h-4 object-contain" />
+            <img src={COINS.purpleStyled} alt="" aria-hidden="true" loading="lazy" className="w-4 h-4 object-contain" />
             <p className="font-rem text-caption text-text-muted">{PROGRESS.xpLabel}</p>
           </div>
         </div>

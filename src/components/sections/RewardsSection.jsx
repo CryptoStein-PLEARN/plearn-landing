@@ -161,6 +161,7 @@ function CoinWithSparkles({ pillar }) {
         src={pillar.icon}
         alt=""
         aria-hidden="true"
+        loading="lazy"
         className="animate-float"
         style={{
           width: '80px',
@@ -373,7 +374,7 @@ export default function RewardsSection() {
               boxShadow:  '0 0 18px rgba(1,222,91,0.14)',
             }}
           >
-            <img src={COINS.green} alt="" aria-hidden="true" className="w-4 h-4 object-contain" />
+            <img src={COINS.green} alt="" aria-hidden="true" loading="lazy" className="w-4 h-4 object-contain" />
             <p className="font-rem text-caption text-text-muted">
               {REWARDS.sub}
             </p>

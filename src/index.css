@@ -244,17 +244,58 @@
   100% { opacity: 0;   transform: scale(0.3) translateY(-10px) rotate(60deg); }
 }
 
-/* ── Mobile performance: kill heavy decorative blur layers on phones ──────── */
-/*    Targets any aria-hidden element using Tailwind blur-[100px]–blur-[199px] */
-/*    These are purely atmospheric — removing them has zero visual impact at   */
-/*    phone widths where sections are already dark bg with radial gradients.   */
+/* ── Mobile performance ────────────────────────────────────────────────────── */
+/*                                                                              */
+/*  Rule summary (all under max-width: 767px):                                 */
+/*  1. Kill heavy blur layers   — aria-hidden + blur-[1xx] — purely decorative */
+/*  2. Kill coin float animation — most coins are hidden lg/xl anyway           */
+/*  3. Kill sparkle particles   — override keyframes to instant-fade            */
+/*  4. Kill neon card border    — disable the rAF-driven ::before/::after       */
+/*  5. Remove drop-shadow cost  — strip filter from decorative float elements   */
+/*  6. Reduce backdrop-blur     — scrolled navbar blur stays cheap              */
+/*                                                                              */
 @media (max-width: 767px) {
+
+  /* 1 — Heavy atmospheric blur divs (blur-[100px]–blur-[199px], aria-hidden).
+         Safe to remove: page backgrounds are opaque dark gradients on mobile. */
   [aria-hidden="true"][class*="blur-[1"] {
     display: none !important;
   }
-  /* Slow down floating coin animation on mobile — reduces CPU ticks */
+
+  /* 2 — Stop floating coin animation entirely.
+         Coins visible on mobile (mobileShow: always/sm) become static images — fine. */
   .animate-float {
-    animation-duration: 10s !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* 3 — Neutralise sparkle/drift particle animations.
+         Override keyframes to just fade to invisible — no movement, no repaints. */
+  @keyframes sparkle-twinkle {
+    0%, 100% { opacity: 0; transform: none; }
+  }
+  @keyframes sparkle-drift {
+    0%, 100% { opacity: 0; transform: none; }
+  }
+
+  /* 4 — Neon card border: disable the conic-gradient pseudo-elements.
+         The rAF loop is also skipped via JS (mobile matchMedia check). */
+  .neon-card-border::before,
+  .neon-card-border::after {
+    display: none !important;
+  }
+
+  /* 5 — Remove GPU-heavy drop-shadow filters from decorative coin images.
+         Visual impact: negligible — coins are barely visible at phone widths. */
+  [aria-hidden="true"].animate-float,
+  [aria-hidden="true"][class*="animate-float"] {
+    filter: none !important;
+  }
+
+  /* 6 — Lighter backdrop-blur on the scrolled navbar (was blur-md = 12px). */
+  .backdrop-blur-md {
+    -webkit-backdrop-filter: blur(6px) !important;
+    backdrop-filter: blur(6px) !important;
   }
 }
 

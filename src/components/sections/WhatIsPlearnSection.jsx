@@ -131,6 +131,7 @@ function CoinWithSparkles({ cfg }) {
         src={cfg.coin}
         alt=""
         aria-hidden="true"
+        loading="lazy"
         className="animate-float"
         style={{
           width: '80px', height: '80px', objectFit: 'contain',
