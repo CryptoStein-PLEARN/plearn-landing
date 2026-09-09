@@ -4,8 +4,8 @@
 #
 # USAGE
 #   Local:      netlify dev            (in another terminal, from plearn-landing/)
-#               ./test-ask-mentor.sh http://localhost:8888
-#   Deployed:   ./test-ask-mentor.sh https://playlearnearn.netlify.app
+#               ./scripts/ask-mentor/test-ask-mentor.sh http://localhost:8888
+#   Deployed:   ./scripts/ask-mentor/test-ask-mentor.sh https://playlearnearn.netlify.app
 #
 # Requires ANTHROPIC_API_KEY to be set (locally in .env.local, or in the
 # Netlify dashboard for the deployed site).

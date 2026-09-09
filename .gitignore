@@ -20,3 +20,6 @@ Thumbs.db
 
 # Vite
 vite.config.js.timestamp-*
+
+# Local Netlify folder
+.netlify

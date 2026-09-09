@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // live-ask-mentor.mjs — LIVE test. Makes REAL calls to the Anthropic API.
 //
-//   node netlify/functions/live-ask-mentor.mjs
+//   node scripts/ask-mentor/live-ask-mentor.mjs
 //
 // Loads ANTHROPIC_API_KEY from .env.local into process.env and never prints it.
 // Imports the real handler, so the exact production code path runs.
@@ -17,7 +17,7 @@ for (const line of readFileSync(new URL('../../.env.local', import.meta.url), 'u
 }
 if (!process.env.ANTHROPIC_API_KEY) { console.error('ANTHROPIC_API_KEY missing'); process.exit(1) }
 
-const handler = (await import('./ask-mentor.mjs')).default
+const handler = (await import('../../netlify/functions/ask-mentor.mjs')).default
 
 // ── Capture logs to verify privacy ──────────────────────────────────────────
 const logs = []

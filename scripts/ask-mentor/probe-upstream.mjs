@@ -1,7 +1,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 // probe-upstream.mjs — isolate the cause of the Anthropic 400.
 //
-//   node netlify/functions/probe-upstream.mjs
+//   node scripts/ask-mentor/probe-upstream.mjs
 //
 // Sends escalating request variants and prints the FULL Anthropic error JSON
 // for each. The first variant that fails identifies the offending field.
@@ -87,7 +87,7 @@ await probe('2. + short system string', {
 
 // 3 — the real system prompt from the function, unmodified.
 const { default: _ } = { default: null }
-const src = readFileSync(new URL('./ask-mentor.mjs', import.meta.url), 'utf8')
+const src = readFileSync(new URL('../../netlify/functions/ask-mentor.mjs', import.meta.url), 'utf8')
 const tmplMatch = src.match(/const SYSTEM_TEMPLATE = `([\s\S]*?)`\n/)
 const template = tmplMatch ? tmplMatch[1] : null
 if (template) {

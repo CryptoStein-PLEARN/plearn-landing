@@ -4,7 +4,7 @@
 // call, so every gate, the response contract, the rate limiter and the logging
 // behaviour are exercised exactly as they run in production.
 //
-//   node netlify/functions/verify-ask-mentor.mjs
+//   node scripts/ask-mentor/verify-ask-mentor.mjs
 //
 // No API key and no network required. This does NOT verify real model output
 // (tone, length, child-appropriateness) — that needs the live run.
@@ -12,7 +12,7 @@
 
 process.env.ANTHROPIC_API_KEY = 'sk-ant-STUB-not-a-real-key'
 
-const handler = (await import('./ask-mentor.mjs')).default
+const handler = (await import('../../netlify/functions/ask-mentor.mjs')).default
 
 // ── Stub upstream ───────────────────────────────────────────────────────────
 let upstreamCalls = 0
