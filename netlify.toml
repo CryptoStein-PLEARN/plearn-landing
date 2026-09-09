@@ -18,6 +18,19 @@
   directory = "netlify/functions"
   node_bundler = "esbuild"
 
+# Privacy policy — serve the standalone HTML file directly
+[[redirects]]
+  from   = "/privacy-policy"
+  to     = "/privacy-policy.html"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from   = "/privacy-policy.html"
+  to     = "/privacy-policy.html"
+  status = 200
+  force  = true
+
 # SPA fallback — same as public/_redirects, belt-and-suspenders
 [[redirects]]
   from   = "/*"
