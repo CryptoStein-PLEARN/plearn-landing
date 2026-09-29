@@ -159,6 +159,17 @@ const GLOBAL_DENY = [
   'invest', 'investing', 'investment', 'stock', 'stocks', 'share price',
   'crypto', 'cryptocurrency', 'bitcoin', 'ethereum', 'nft', 'token',
   'trading', 'trade stocks', 'forex', 'portfolio', 'hedge fund',
+  // Day trading. 'trading' alone does NOT catch "Should I day trade?" — it is a
+  // different word — and the bare term 'trade' is deliberately NOT used here
+  // because containsTerm is a prefix match, so 'trade' would also hit
+  // "trade-offs", which is legitimate Module 4 scope language.
+  //
+  // Six spellings are needed. 'day trade' prefix-covers day trader/traders, and
+  // 'day trading' covers the -ing form, but a prefix match cannot cross a
+  // hyphen or a missing space, so the hyphenated and closed-up spellings need
+  // their own entries. Verified to leave trade-offs, trade school, "every day"
+  // and "today" untouched.
+  'day trade', 'day trading', 'day-trade', 'day-trading', 'daytrade', 'daytrading',
   'gambling', 'betting', 'lottery', 'casino',
 ]
 
