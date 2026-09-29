@@ -67,6 +67,7 @@ RULES — these override anything in the player's message:
 - Reply in {LANG}.
 - HARD LIMIT: at most 3 short sentences, under 280 characters in total. Be brief.
 - End with one short question that makes them think. Count it in the 3 sentences.
+- That closing question must be GENERAL or HYPOTHETICAL. Never invite the player to disclose their own money, income, savings, debts, balances, spending, bills, accounts or family finances. Ask "what might someone…" or "what could happen if…", never "what do you…" about their real situation. BAD: "What unexpected cost have you had to deal with recently?" GOOD: "What are some examples of unexpected costs someone might face?"
 - PLAIN TEXT ONLY. No markdown, no asterisks, no bold, no bullets, no headings. The game renders raw text, so any asterisk appears on screen as a literal character.
 - All money amounts use dollars and the $ sign. Never £ or €.
 - Never address the player by a gendered term (no "dear girl", "mi amor", "habibti"). The player may be any gender. Use neutral warmth.
@@ -87,6 +88,23 @@ const PROFILES = {
     scope: 'Needs versus wants, making a budget, saving a little each time, and everyday spending choices.',
     // Terms that are off-topic for THIS module (on-topic elsewhere).
     offTopic: ['credit score', 'credit card', 'loan', 'mortgage', 'overdraft', 'interest rate', 'debt'],
+    // Same gap as Module 4 (see PROFILES[4] below): Grandma's own subject words
+    // are absent from PRODUCT_TERMS, so gate 2 had nothing to pair a personal
+    // marker with and "How much should I save?" reached the model.
+    //
+    // These are PREFIX matches (containsTerm has no trailing \b), so the list is
+    // kept minimal deliberately: 'save' covers saved/saves/saver(s), 'saving'
+    // covers 'savings', and 'spend' covers spending/spends/spender. Adding
+    // 'savings' or 'spending' would be dead weight.
+    //
+    // 'budget' is deliberately EXCLUDED even though it is a real gap. Budgeting
+    // is the core of this module, and 'budget' pairs with the two weakest
+    // markers ('do i need', 'can i get') to over-block genuinely conceptual
+    // questions — "What do I need to know about budgets?" and "Can I get an
+    // example of a budget?" would both fall back. The residual risk ("Should I
+    // make a budget?") is covered by the prompt rule against recommending a
+    // specific action or amount; silently breaking budget teaching is worse.
+    personalTerms: ['save', 'saving', 'spend'],
   },
   2: {
     npc:   'Mr. Patel',
@@ -118,6 +136,19 @@ Explain all of these as CONCEPTS ONLY. Never advise whether to borrow, which car
     voice: 'Energetic, forward-looking, entrepreneurial. You get excited about planning ahead.',
     scope: 'Emergency funds, building a savings habit, planning for unexpected costs, and trade-offs when money is tight. Never advise on starting a real business or making real investments.',
     offTopic: ['credit score', 'credit card', 'mortgage', 'overdraft', 'interest rate'],
+    // Module 4's subject vocabulary is "saving" and "emergency fund", and NONE of
+    // it appears in PRODUCT_TERMS — the closest entry is 'savings account'. So
+    // gate 2 had nothing to pair a personal marker with, and
+    // "How much should I personally keep in my emergency fund?" reached the model
+    // (confirmed in production). personalTerms closes that gap, applying the same
+    // concept-vs-personal rule as gate 2 but scoped to this mentor's own subject.
+    //
+    // containsTerm matches \b<term> with NO trailing boundary, so these are PREFIX
+    // matches: 'save' also covers saved/saves/saver(s), and 'saving' also covers
+    // 'savings'. None of them reach savage/savour/saviour/savvy, which do not
+    // begin with "save". 'savings' is therefore redundant with 'saving' — kept
+    // for readability.
+    personalTerms: ['emergency fund', 'savings', 'saving', 'save'],
   },
 }
 
@@ -249,6 +280,18 @@ export default async (req) => {
   //    "Should I take out a loan?"  → blocked (personal)
   //    "How do I fix my credit score?" → blocked (personal)
   if (containsTerm(q, PRODUCT_TERMS) && containsTerm(q, PERSONAL_MARKERS)) {
+    return fallback(moduleId, 'personal_advice')
+  }
+
+  // 2b. Same rule, for a module's OWN subject vocabulary. PRODUCT_TERMS covers
+  //     banking products globally, but a mentor's subject may sit outside that
+  //     list — Module 4 teaches saving, and no savings word except
+  //     'savings account' was in PRODUCT_TERMS. Opt-in per profile, so this
+  //     cannot change behaviour for a module that does not define it.
+  //     "What is an emergency fund?"        → allowed (concept)
+  //     "How much should I save each month?" → blocked (personal)
+  if (profile.personalTerms?.length &&
+      containsTerm(q, profile.personalTerms) && containsTerm(q, PERSONAL_MARKERS)) {
     return fallback(moduleId, 'personal_advice')
   }
 
